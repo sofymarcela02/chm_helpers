@@ -117,7 +117,7 @@ make_chm_data <- function(deployments, observations,
 chmTMB <- function(formula, type = c("bimodal", "unimodal"), data = NULL, ...){
   type = match.arg(type)
   trigTerms <- switch(type,
-                      unmodal = "(cos(timeRadian) + sin(timeRadian))",
+                      unimodal = "(cos(timeRadian) + sin(timeRadian))",
                       bimodal = "(cos(timeRadian) + sin(timeRadian) + cos(2*timeRadian) + sin(2*timeRadian))")
   formula <- as.formula(gsub("\\btime\\b", 
                              trigTerms, 
